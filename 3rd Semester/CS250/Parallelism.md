@@ -33,6 +33,32 @@ Notes: Balancing the load on slower and faster processors to achieve faster exec
 ### Instruction Level Parallelism
 > Running instructions in parallel
 
+Issue slots
+> The positions from which instructions could issue in a given clock cycle; by analogy, these correspond to positions at the starting blocks for a sprint.
+
+#### Multiple issue
+> A scheme whereby multiple instructions are launched in one clock cycle.
+
+###### Static multiple issue
+> An approach to implementing a multiple-issue processor where many decisions are made by the compiler before execution.
+
+Issue packet
+The set of instructions that issues together in one clock cycle; the packet may be determined statically by the compiler or dynamically by the processor.
+
+###### Dynamic multiple issue
+> An approach to implementing a multiple-issue processor where many decisions are made during execution by the processor.
+
+Superscalar
+> An advanced pipelining technique that enables the processor to execute more than one instruction per clock cycle by selecting them during execution.
+
+Dynamic pipeline scheduling [[Instruction Scheduling]]
+> Hardware support for reordering the order of instruction execution to avoid stalls.
+
+Speculation
+> An approach whereby the compiler or processor guesses the outcome of an instruction to remove it as a dependence in executing other instructions.
+
+
+
 ## Multithreading
 ### Hardware Multithreading
 > Increasing utilization of a processor by switching to another thread when one thread is stalled.

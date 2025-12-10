@@ -2,9 +2,9 @@
 
 Status: #cs250
 
-Tags: #baby
+Tags: #revise
 
-Chapters: 1.4
+Chapters: 1.4, all of chapter 4
 
 # Datapath
 > a unit used to operate on or hold data within a processor. In the LEGv8 implementation includes: instruction and data memories, the register file, the ALU, and adders 
@@ -42,11 +42,15 @@ Various implementations
 #### Single cycle implementation
 > (single clock implementation) an implementation which an instruction is executed in one clock cycle. it is too slow to be practical
 
-#### Multicycle Implementation
+#### Multicycle Implementation (4.6)
 > 5 stage instruction execution (see [[Pipelining]])
-![[Screenshot 2025-12-09 233427.png]]
-
-
+> 1. IF: Instruction fetch
+> 2. ID: Instruction decode and register file read
+> 3. EX: Execution or address calculation
+> 4. MEM: Data memory access
+> 5. WB: Write back
+> IF to ID; ID to EX; EX to MEM; MEM to WB
+![[Screenshot 2025-12-10 013110.png]]
 ## Terminology
 Datapath element
 > A unit used to operate on or hold data within a processor. In the LEGv8 implementation, the datapath elements include the instruction and data memories, the register file, the ALU, and adders.

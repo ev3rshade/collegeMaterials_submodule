@@ -13,4 +13,9 @@ Tags:
 
 
 
+
+
+## Methods to Resolve
+see hazards in [[Pipelining]]
+
 # References

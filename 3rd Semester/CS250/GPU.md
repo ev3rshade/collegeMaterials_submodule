@@ -1,10 +1,11 @@
 Opened 18:39
 
-Status:
+Status: #cs250
 
 Tags: [[Components of a Computer System]]
 
-# GPU
+Chapters: 6.6
+# GPU (6.6)
 
 
 ## Terminology

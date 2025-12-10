@@ -4,6 +4,7 @@ Status: #cs250
 
 Tags: [[Computer Arithmetic]]
 
+Chapters: Chapter 1
 # Logic
 
 ### Truth Table

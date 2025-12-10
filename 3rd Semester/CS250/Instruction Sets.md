@@ -89,4 +89,7 @@ Arithmetic
 ## Terminology
 Branch target address
 > The address specified in a branch, which becomes the new program counter (PC) if the branch is taken. In the LEGv8 architecture, the branch target is given by the sum of the offset field of the instruction and the address of the branch.
+
+Very Long Instruction Word (VLIW)
+> A style of instruction set architecture that launches many operations that are defined to be independent in a single wide instruction, typically with many separate opcode fields.
 # References

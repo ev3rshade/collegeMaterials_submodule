@@ -13,6 +13,8 @@ Chapters: 1.2
 > 
 #### Latency
 >the time delay between when a user sends a data request and when they receive a response
+- Use latency: Number of clock cycles between a load instruction and an instruction that can use the result of the load without stalling the pipeline.
+
 ### Clocking methodology
 > The approach used to determine when data is valid and stable relative to the clock
 

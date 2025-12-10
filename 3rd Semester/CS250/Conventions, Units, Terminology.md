@@ -16,6 +16,9 @@ Tags:
 #### Most significant bit
 > leftmost bit in a LEGv8 doubleword
 
+##### One's Complement
+##### Two's Complement
+
 ## Data Types
 ### Text
 - ASCII

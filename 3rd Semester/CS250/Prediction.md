@@ -9,6 +9,6 @@ Chapters: 1.2
 > predicting the outcome of a process to increase performance (decrease wait time)
 
 
-
+## Terminology
 
 # References
