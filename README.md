@@ -2,9 +2,9 @@ notes - git submodule from main private obsidian backup repo
 
 # notes from college
 
-# this is a partition from my obsidian vault which is backed up on a private repository
+### this is a partition from my obsidian vault which is backed up on a private repository
 
-# git learned
+### git learned
 `git submodule add`
 `git submodule init`
 `git submodule deinit`
