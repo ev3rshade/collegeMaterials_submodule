@@ -1,6 +1,6 @@
 Opened 03:27
 
-Status: #cs250
+Status: cs250
 
 Tags: [[Memory]] 
 

@@ -4,18 +4,19 @@ Status: #cs250
 
 Tags: [[Circuitry]]
 
-Chapters: 1.2
-# Clock + Timing
+Chapters: 1.2 7.7
+# Timing
 > clocking and timing used to execute instructions and wait for data to load
 
 ## Delay
 #### Propagation Delay
-> 
+> how 
 #### Latency
 >the time delay between when a user sends a data request and when they receive a response
 - Use latency: Number of clock cycles between a load instruction and an instruction that can use the result of the load without stalling the pipeline.
 
-### Clocking methodology
+# Clocks (7.7)
+## Clocking methodology
 > The approach used to determine when data is valid and stable relative to the clock
 
 ##### Edge-triggered clocking

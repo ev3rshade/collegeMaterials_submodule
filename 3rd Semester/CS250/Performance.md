@@ -2,7 +2,7 @@ Opened 16:51
 
 Status: #cs250
 
-Tags: [[Clock + Timing]]
+Tags: [[Clocks + Timing]]
 
 Chapters: 1.2 1.6 1.7
 

@@ -7,11 +7,11 @@ Hexadecimal
 - [ ] Categorize types of problems
 - [ ] Revise
 
-[[Digital Logic]]: transistors, gates, and combinatorial circuits; 🟡
+[[2. Digital Logic & Circuitry]]: transistors, gates, and combinatorial circuits; 🟡
 clocks; 🟡
 registers and register banks; 🔴
 arithmetic-logic units; 🟡
-data representation - [[Conventions, Units, Terminology]]: big-endian and lible-endian integers; 🟡
+data representation - [[1. Representing Data]]: big-endian and lible-endian integers; 🟢
 ones and twos complement arithmetic; 🟢
 signed and unsigned values; 🟢
 Von-Neumann architecture and bottleneck; 🔴
@@ -44,11 +44,12 @@ data pipelining🟡
 5.1-5.4 5.5 5.7-5.8 5.10 5.16-5.17 (revised 12/08)
 ## Chapter 6 🟡
 Read 6.1 - 6.5
-6.6-6.10 6.13-6.14 🔴
-## Chapter 7 🔴
+6.6-6.10 6.13-6.14
+## Chapter 7 🟢
 7.1 - 7.3
 7.5 - 7.10
 7.12-7.13
+revise (7.6 ) 🔴
 
 
 ## Diagrams to revisit

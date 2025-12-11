@@ -56,4 +56,42 @@ Datapath element
 > A unit used to operate on or hold data within a processor. In the LEGv8 implementation, the datapath elements include the instruction and data memories, the register file, the ALU, and adders.
 
 
+
+## Circuirty
+
+## **6. Memory & Datapath Components**
+
+### **6.1 Clock**
+
+Controls timing, synchronization, and sequencing of state elements.
+
+### **6.2 Memory Components**
+
+- **Instruction memory**
+    
+- **Data memory**
+    
+- **Registers**
+    
+- **Program Counter (PC)** — holds instruction address
+    
+
+_(Your “forgot word memory” might be **data memory** or **main memory** — let me know and I’ll fill it in.)_
+
+### **6.3 Datapath Elements**
+
+> Units that store or operate on data within a processor.  
+> Includes:
+
+- Register file
+    
+- ALU
+    
+- Instruction memory
+    
+- Data memory
+    
+- Adders
+    
+- Multiplexors
 # References
