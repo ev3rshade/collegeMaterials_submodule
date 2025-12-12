@@ -4,8 +4,6 @@ Status: cs250
 
 Tags: [[Computer Architecture]] #abstraction
 
-Chapters: Chapter 7.1-7.3
-
 # Digital Logic
 
 ---
@@ -16,11 +14,19 @@ Chapters: Chapter 7.1-7.3
 #### Deasserted
 > A signal is logically low or false
 
+
+#### Active High logic
+> represents truth table logic 1 values with the higher voltage level of the two voltages
+#### Active Low logic
+>represents a logic 1 value with the lower voltage level of the two voltages
+
+
 ### 1.2 Transitions
 #### Rising Edge
 0 --> 1
 #### Falling Edge
 1 --> 0
+
 
 ### 1.3 Control vs. Data Signals
 #### Control signal
@@ -94,9 +100,17 @@ Chapters: Chapter 7.1-7.3
 ---
 ## 5 Structured Logic Components
 components of a logic system (circuit) built from the fundamental components
-### 5.1 Multiplexor
+
+
+### 5.1 Data Stream
+#### Bus
+>a group of N wires used to carry N bits 
+>of data simultaneously from place to place
+#### Multiplexer (MUX)
 > (selector) uses control signals to select one of the inputs and direct it to the output, acting as a data selector or a "many-to-one" switch
 - **Selector value:** (control value) The control signal that is used to select one of the input values of a multiplexor as the output of the multiplexor.
+#### Demultiplexer (DEMUX)
+> a digital circuit that takes a single data input and routes it to one of several possible output lines, controlled by selection lines
 
 ### 5.2 Encoder / Decoder
 > **Encoders*** convert $2^N$ lines of input into a code of $N$ bits and **Decoders*** decode the $N$ bits into $2^N$ lines
@@ -124,10 +138,13 @@ components of a logic system (circuit) built from the fundamental components
 
 
 
----
-## 6. Example Circuits & How They Work
+## 6 Timing
+Gate Delays and stuff
 
-### 6.1 Half Adder
+---
+## 7 Example Circuits & How They Work
+
+### 7.1 Half Adder
 #### Purpose
 Adds two 1-bit binary inputs (A and B).
 
@@ -144,7 +161,7 @@ Adds two 1-bit binary inputs (A and B).
 
 
 ---
-### 6.2 Full Adder
+### 7.2 Full Adder
 
 #### Purpose
 Adds three 1-bit binary inputs (A, B, and Carry-in).
@@ -163,7 +180,7 @@ Adds three 1-bit binary inputs (A, B, and Carry-in).
 
 
 ---
-### 6.3 2-to-1 Multiplexer
+### 7.3 2-to-1 Multiplexer
 
 #### Inputs
 - **D0**, **D1** (data inputs)  
@@ -184,7 +201,7 @@ Adds three 1-bit binary inputs (A, B, and Carry-in).
 
 ---
 
-### 6.4 3-to-8 Decoder
+### 7.4 3-to-8 Decoder
 
 #### Inputs
 - **A2, A1, A0** (3-bit binary input)
@@ -207,7 +224,7 @@ Only one AND gate matches the binary input pattern → only one output is assert
 
 ---
 
-### 6.5 Set–Reset Latch (SR Latch using NOR Gates) (Lab 03)
+### 7.5 Set–Reset Latch (SR Latch using NOR Gates) (Lab 03)
 
 #### Inputs
 - **S** (set)  
@@ -226,12 +243,12 @@ Only one AND gate matches the binary input pattern → only one output is assert
 
 ---
 
-## 6.6 D Latch (Basic Memory Element)
+### 7.6 D Latch (Basic Memory Element)
 
-### Inputs
+#### Inputs
 - **D** (data)  
 - **EN** (enable)
-### Output
+#### Output
 - **Q**
 ### How It Works
 - When **EN = 1**, **Q follows D**.  
@@ -252,5 +269,53 @@ Only one AND gate matches the binary input pattern → only one output is assert
 
 ---
 
+
+# Information that needs to be included
+Setup time
+> The minimum time that the input to a memory device must be valid before the clock edge.
+
+Hold time
+> The minimum time during which the input must be valid after the clock edge.
+
+Finite-state machine
+> A sequential logic function consisting of a set of inputs and outputs, a next-state function that maps the current state and the inputs to a new state, and an output function that maps the current state and possibly the inputs to a set of asserted outputs.
+
+Next-state function
+> A combinational function that, given the inputs and the current state, determines the next state of a finite-state machine.
+
+Field programmable devices (FPD)
+> An integrated circuit containing combinational logic, and possibly memory devices, that are configurable by the end user.
+
+Programmable logic device (PLD)
+> An integrated circuit containing combinational logic whose function is configured by the end user.
+
+Field programmable gate array (FPGA)
+> A configurable integrated circuit containing both combinational logic blocks and flip-flops.
+
+Simple programmable logic device (SPLD)
+> Programmable logic device, usually containing either a single PAL or PLA.
+
+Programmable array logic (PAL)
+> Contains a programmable and-plane followed by a fixed or-plane.
+
+Antifuse
+> A structure in an integrated circuit that when programmed makes a permanent connection between two wires.
+
+Lookup table (LUTs)
+> In a field programmable device, the name given to the cells because they consist of a small amount of logic and RAM.
 # References
-## CS250 Lab 03
+## Lectures
+[[CS250 LEC Boolean Alg, Comb Ckts, TT to Ckt - GB Adams.pdf]]
+[[CS250 LEC Pointing and data bus selection - GB Adams.pdf]]
+[[CS250 LEC Adding & Remembering - GB Adams.pdf]]
+## Textbook Chapters
+- Chapter 7
+	- 7.1 - 7.3
+	- 
+	- 7.8
+	- 7.12
+	- 
+
+## Labs
+[[CS250 Lab01 Course Introduction.pdf]] - circuit diagram is incorrect
+[[CS250 Lab03 S'R' Latch.pdf]]

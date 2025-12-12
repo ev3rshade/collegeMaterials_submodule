@@ -2,7 +2,7 @@
 
 Status: #cs250
 
-Tags: [[Instruction Sets]]
+Tags: [[🟡 5 Instruction Sets]]
 
 Chapters: 1.3
 # Assembly

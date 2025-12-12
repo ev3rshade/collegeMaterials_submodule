@@ -27,16 +27,17 @@ Chapters:
 
 Example used: **13** and **–13**
 
-##### One's Complement
-
+#### One's Complement
 > Ex: 13 → 01101  
-> –13 → 10010
+>    –13 → 10010
 
-##### Two's Complement
-
+#### Two's Complement
 > Ex: 13 → 01101  
-> –13 → 10011
+>    –13 → 10011
 
+#### Sign-magnitude
+> Ex: 13 → 01101  
+>    –13 → 11101
 
 ### 2.2 Hexadecimal Representation
 
@@ -112,3 +113,8 @@ Memory (low → high):
 [[IEEE Floating Point System]]
 
 # References
+## Lectures
+[[CS250 LEC Adding & Remembering - GB Adams.pdf]]
+[[CS250 LEC Data Representation - GB Adams.pdf]]
+[[CS250 LEC IEEE 754 Floating Point - GB Adams.pdf]]
+## Textbook Chapters

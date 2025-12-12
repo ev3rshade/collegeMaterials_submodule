@@ -2,12 +2,12 @@
 
 ## 1. Data Representation
 
-[[1. Representing Data]]: big-endian and little-endian integers; 🟢
+[[🟢 1 Representing Data]]: big-endian and little-endian integers; 🟢
 signed and unsigned values; 🟢
 ones and twos complement arithmetic; 🟢
 
 ## 2. Digital Logic
-[[2. Digital Logic & Circuitry]]: transistors, gates, and combinatorial circuits; 🟡🟢
+[[🟡 2 Digital Logic & Circuitry]]: transistors, gates, and combinatorial circuits; 🟡🟢
 
 ## 3. Basic Computer Architecture
 Von-Neumann architecture and bottleneck; 🔴
@@ -16,14 +16,14 @@ arithmetic-logic units; 🟡
 
 ## 4. Memory Systems
 registers and register banks; 🔴
-[[Memory]] and [[Address Spaces]]; 🟡
+[[🔴 Memory]] and [[Address Spaces]]; 🟡
 memory caches; 🔴
 physical and virtual memory; 🟡
 page tables; 🔴
 DMA; 🟡
 
 ## 5. Instruction Sets
-[[Instruction Sets]]; 🟡
+[[🟡 5 Instruction Sets]]; 🟡
 RISC and CISC designs; 🔴
 assembly language; 🟡
 

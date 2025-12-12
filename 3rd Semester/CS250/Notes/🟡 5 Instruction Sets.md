@@ -5,28 +5,21 @@ Status: #cs250
 Tags: [[Assembly]]
 
 # Instruction Sets
+> the set of commands understood by a given (computer) architecture
+> i.e. the fundamental language of a computer
 
-Stored program concept - idea that programs are stored on computers alongside data
+==The instruction set used in this course is [[ARM LEGv8]]==
 
-## Representing on computer
-Instructions are made up of a series of fields --> represented in binary
-Instruction format --> machine language
 
-### 32 bits is the size of an LEGv8 Instruction
+---
+### 1 Characteristics
 
-### Fields of an instruction
-#### Opcode
-> the field that denotes the operation and format of an instruction
+### 1.1 Instruction Format
+- Length
+- Number and size of fields
+- Encoding scheme
 
-Ex: `ADD X1, X4, X3`
-
-| opcode                                  | Rm                     | shamt  | Rn              | Rd                                           |
-| --------------------------------------- | ---------------------- | ------ | --------------- | -------------------------------------------- |
-| 11 bits                                 | 5 bits                 | 6 bits | 5 bits          | 5 bits                                       |
-| Indicates what the instruction performs | Second source register |        | Source register | Indicates the register to receive the result |
-| ADD                                     | X3                     | Unused | X4              | X1                                           |
-
-## Instruction Types (TABLE IN 2.2, 2.5)
+### 1.2 Instruction Types
 ### One type
 #### Arithmetic
 #### Data Transfer
@@ -51,13 +44,21 @@ Branch address table (branch table) - a table of addresses of alternative instru
 > uses a constant to indicate the offset from a base address. A D-type instruction has a 9 bit immediate fieldd
 
 
+## 2 Instruction Representation
+
+### 1.1 Fields of an instruction
+#### Opcode
+> the field that denotes the operation and format of an instruction
+
 ### Encoding of an instruction
 ==see table 2.10==
 
 
 ### Compiling instructions
-[[Instruction Scheduling]]
-### Executing instructions
+
+## Instruction Execution
+######  Stored program concept
+> idea that programs are stored on computers alongside data
 ###### Basic steps
 1. fetch from memory using program counter (PC)
 2. read one or two registers, using fields of the instruction to select the registers to read.
@@ -80,11 +81,11 @@ Arithmetic
 ![[Screenshot 2025-12-09 130702.png]]
 
 
-## Other instruction sets
-### MIPS
-### ARMv7 (32-bit) instructions
-### x86 instructions
-### ARMv8 (64-bit) instruction set
+## Real World Instruction sets
+- MIPS
+- ARMv7 (32-bit) instructions
+- x86 instructions
+- ARMv8 (64-bit) instruction set
 
 ## Terminology
 Branch target address
@@ -93,3 +94,7 @@ Branch target address
 Very Long Instruction Word (VLIW)
 > A style of instruction set architecture that launches many operations that are defined to be independent in a single wide instruction, typically with many separate opcode fields.
 # References
+
+## Textbook
+- Chapter 2
+	- 2.1

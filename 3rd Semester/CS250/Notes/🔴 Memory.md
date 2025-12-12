@@ -4,14 +4,12 @@ Status: cs250
 
 Tags: #memoryHierarchy
 
-Chapters: 1.2, 1.4, 2.3, all of chapter 5, 7.8
-
 
 # Memory
 > a place to store values to represent information in the machine
 
 ---
-## 1. Characteristics of a memory system
+## 1 Characteristics of a memory system
 ### 1.1 Volatility
 #### Volatile Memory
 > memory that loses data when power is removed
@@ -43,9 +41,11 @@ Typically, higher levels of hierarchy have lower capacity
 #### Word Size
 > (see 2. Representing Data) (8-bit, 16-bit, etc.)
 
+#### Block (or line)
+> The minimum unit of information that can be either present or not present
+
 #### Addressable Units
 > what unit is being used to address data (e.g. byte addressing)
-
 
 
 ### 1.6 Physical Structure / Technology
@@ -90,132 +90,72 @@ HDD --> cheapest
 
 
 
+
+
 ---
-## 2. Memory Hierarchy (5.1)
+## 2 Memory Access
+### 2.1 Measures of Memory Access
+#### Hit Rate
+> The fraction of memory accesses found in a level of the memory hierarchy.
+
+#### Miss Rate
+> The fraction of memory accesses not found in a level of the memory hierarchy.
+
+#### Hit Time
+> The time required to access a level of the memory hierarchy, including the time needed to determine whether the access is a hit or a miss.
+
+#### Miss penalty:
+> The time required to fetch a block into a level of the memory hierarchy from the lower level. Includes time to:
+>- access the block
+>- transmit block from one level to the other
+>- insert block in the level that experienced the miss
+>- pass the block to the requestor
+
+
+---
+## 3 Memory Hierarchy
 > A structure that uses multiple levels of memories; as the distance from the processor increases, the size of the memories and the access time both increase.
 
-![[Screenshot 2025-11-04 021254.png]]
+### 3.1 Design of Memory Hierarchy
+Temporal Locality
+> The locality principle stating that if a data location is referenced then it will tend to be referenced again soon.
 
-## 3. Levels of the Memory Hierarchy ==LAST HERE==
+Spatial Locality
+> The locality principle stating that if a data location is referenced, data locations with nearby addresses will tend to be referenced soon.
+
+The memory hierarchy is built with these two principles in mind
+
+
+### 3.2 Levels of Memory Hierarchy
 
 -Fastest access-
-### Processor ([[Registers]]) 
-↑↓
-### [[Cache]] (5.3)
+### Processor 
+(hardware [[🔴 Registers]]) 
+⬆️⬇️⬆️⬇️⬆️⬇️⬆️⬇️
+
+### [[🔴 Cache]] (5.3)
 (hardware: SRAM)
-↑↓
+⬆️⬇️⬆️⬇️⬆️⬇️⬆️⬇️
+
 ### [[Main memory]]
 (hardware: DRAM)
-↑↓
+⬆️⬇️⬆️⬇️⬆️⬇️⬆️⬇️
+
 ### [[Disk]]
 (hardware: Magnetic Disk)
 
 -slowest access-
 
 
-## 4. Hardware (Technology)
 
-### 4.1 Registers
-> A **register file** is a small, fast set of state elements inside the CPU.  
-> accessed using register numbers (IDs) and supply operands for instructions.
-
-#### Characteristics
-- **Volatility:** volatile
-- **Access time:** fastest in entire system (single cycle or sub-cycle)
-- **Bandwidth:** extremely high (multiple read/write ports)
-- **Capacity:** very small (tens to low hundreds of bytes)
-- **Technology:** implemented using **SRAM-like flip-flops**
-- **Access granularity:** word-level (defined by ISA)
-- **Cost per bit:** highest of all memory types
-
-#### Location 
-inside CPU
-#### Usage
-holding operands, results, state, temporary values, memory access
-##### Memory access
-Base registers
-> register used for address computation (base + offset)
-    
-Destination register
-> register that receives results of an instruction
-
-#### Related registers
-##### Program Counter (PC)
-> register that holds the address of the next instruction
+### 3.3 Diagram of Memory Hierarchy
+![[Screenshot 2025-12-11 221557.png]]
 
 
 
 
-### 4.2 SRAM (Static RAM) (5.2)
-> Integrated-circuit memory using **6–8 transistors per bit**. 
-
-- One access port per array is common (though multi-ported SRAM exists).
-- Faster but far more expensive than DRAM.
-#### Characteristics
-- **Volatility:** volatile
-- **Access time:** very fast (ns-scale)
-- **Bandwidth:** high
-- **Capacity:** small to moderate
-- **Density:** low (many transistors per bit)
-- **Technology:** stable bistable flip-flops; no refresh needed
-- **Cost per bit:** high
-    
-#### Usage
-L1/L2/L3 caches, register files
-
-
-
-
-### 4.3 DRAM (5.2)
-> Main memory technology using **1 transistor + capacitor per bit** which requires periodic **refresh**.
-
-Characteristics
-
-- **Volatility:** volatile
-- **Access time:** slower than SRAM
-- **Bandwidth:** high (burst transfers)
-- **Capacity:** large
-- **Density:** high
-- **Technology:** stored as charge in capacitors; must refresh thousands of times per second
-- **Cost per bit:** lower than SRAM
-
-#### Usage
-main memory (RAM)
-    
-#### Organization
-- **Banks** → contain **rows**, each storing many bits
-- Access occurs in **bursts** per clock edge
-- Row activation cost dominates latency
-![[Screenshot 2025-12-10 025555.png]]
-
-
-
-### 4.4 Disk Memory
-> A **mechanical**, magnetic storage device. Non-volatile and extremely high capacity.
-
-#### Characteristics
-- **Volatility:** non-volatile
-- **Access time:** _very slow_ (milliseconds)
-- **Bandwidth:** moderate
-- **Capacity:** very large
-- **Density:** very high
-- **Technology:** magnetic coating + spinning platters + moving heads
-- **Cost per bit:** lowest of all major storage types
-- **Usage:** long-term storage
-    
-
-#### Disk Structure
-- **Track:** concentric circle on the platter
-- **Sector:** smallest read/write unit of a track
-    
-#### Data Access Components
-- **Seek time:** moving head to correct track
-- **Rotational latency:** waiting for the correct sector
-- **Transfer time:** reading/writing bits once aligned
-    
-
-Mechanical nature → the primary bottleneck.
-### 4.5 Flash Memory
+### 2.4 External Memory
+#### Flash Memory
 > A type of **EEPROM (electrically erasable programmable ROM)** used in SSDs, phones, microcontrollers.
 
 #### Characteristics
@@ -229,6 +169,7 @@ Mechanical nature → the primary bottleneck.
     - reads = fast
     - writes = slower
     - erases = block-based (entire block must be erased before writing)
+    - writes to the same location deteriorate the memory bits 
 - **Cost per bit:** more expensive than disk, cheaper than DRAM
 
 #### Usage 
@@ -237,11 +178,15 @@ SSDs, firmware storage, embedded systems
 
 
 
+
 ---
 
 
-## 5. Performance
+## 5 Performance
 
+## 6 Error Handling
+Error detection code
+> A code that enables the detection of an error in data, but not the precise location and, hence, correction of the error.
 
 ## Pitfalls and Fallacies #revise
 Pitfall: Ignoring memory system behavior when writing programs or when generating code in a compiler.
@@ -277,10 +222,6 @@ Fallacy: Operating systems are the best place to schedule disk accesses.
 
 ---
 ## Units / terminology
-
-Block (or line)
-> Fixed-size units of data
-
 Fault
 > used to mean failure of a component
 
@@ -296,26 +237,21 @@ Hit time (5.1)
 Miss penalty (5.1)
 > The time required to fetch a block into a level of the memory hierarchy from the lower level, including the time to access the block, transmit it from one level to the other, insert it in the level that experienced the miss, and then pass the block to the requestor
 
-Register file
-> A state element that consists of a set of registers that can be read and written by supplying a register number to be accessed.
-
-State element (7.7)
-> A memory element.
-
 Synchronous system (7.7)
 > A memory system that employs clocks and where data signals are read only when the clock indicates that the signal values are stable.
 
-Tag (5.3)
-> A field in a table used for a memory hierarchy that contains the address information required to identify whether the associated block in the hierarchy corresponds to a requested word.
-
-Valid bit (5.3)
-> A field in the tables of a memory hierarchy that indicates that the associated block in the hierarchy contains valid data.
-
-Temporal Locality
-> The locality principle stating that if a data location is referenced then it will tend to be referenced again soon.
-
-Spatial Locality
-> The locality principle stating that if a data location is referenced, data locations with nearby addresses will tend to be referenced soon.
-
 # References
+
+## Labs
 Lab 12
+
+## Textbook
+- Chapters 1
+	- 1.2
+	- 1.4
+- Chapter 2
+	- 2.3
+- Chapter 5
+	- 5.1
+- Chapter 7
+	- 7.7 - 7.9

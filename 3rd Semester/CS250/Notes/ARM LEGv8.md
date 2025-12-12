@@ -9,6 +9,26 @@ Chapters: All of chapter 2
 # LEGv8
 > an assembly language. a simplified subset of the [ARMv8 assembly language](https://www.google.com/search?q=ARMv8+assembly+language&rlz=1C1CHBF_enUS1120US1120&oq=is+legv8+assembly&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTINCAEQABiGAxiABBiKBTIKCAIQABiABBiiBDIKCAMQABiABBiiBDIKCAQQABiABBiiBDIKCAUQABiABBiiBNIBCDM3ODdqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&mstk=AUtExfCB6IV_hxiwdvMW7FgfFbmmxEVevUbBM3cWDZ6gc-W6kITHyky3OARkNtGsP1kDBwek-Vgi9cvwckerUrpa39AKXi4LVDVMP5PdUWF0AzIG_9EXIFmG8wCTPbWM8ArvW6cN1TP15SqkWrWcTbsxCCSlbAuSeDusIrVqk8pSgVFcyMs&csui=3&ved=2ahUKEwillLGdoJuRAxWwmokEHVZeLFEQgK4QegQIARAC) used for educational purposes
 
+## 1 Instruction Format
+### Length (size)
+32 bit
+
+### Field Size
+- **Opcode** - 11 bits
+- **Registers** - 5 bits
+- **shamt** - 6 bits
+
+
+Ex: `ADD X1, X4, X3`
+
+| opcode                                  | Rm                     | shamt  | Rn              | Rd                                           |
+| --------------------------------------- | ---------------------- | ------ | --------------- | -------------------------------------------- |
+| 11 bits                                 | 5 bits                 | 6 bits | 5 bits          | 5 bits                                       |
+| Indicates what the instruction performs | Second source register |        | Source register | Indicates the register to receive the result |
+| ADD                                     | X3                     | Unused | X4              | X1                                           |
+
+
+
 ### Syntax
 - One operation, three parameters
 ==see table in chapter 2 for full list==
@@ -35,7 +55,18 @@ Steps to execute the implementation
 	1. For LDUR and CBZ 1 register
 	2. For other instructions 2 registers
 
+## 2 Instruction types (TABLE IN 2.2, 2.5)
+
+### Arithmetic
+### Data Transfer
+### Logical
+### Conditional Branch
+### Unconditional Branch
+
 ## Terminology
 Basic block
 > a sequence of instructions without branches
 # References
+## Textbook
+- Chapter 2
+	- 2.2

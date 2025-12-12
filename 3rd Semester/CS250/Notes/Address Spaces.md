@@ -2,7 +2,7 @@ Opened 20:47
 
 Status: #cs250 
 
-Tags: [[Memory]]
+Tags: [[🔴 Memory]]
 
 # Address Spaces
 

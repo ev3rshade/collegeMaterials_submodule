@@ -7,19 +7,19 @@ Hexadecimal
 - [ ] Categorize types of problems
 - [ ] Revise
 
-[[2. Digital Logic & Circuitry]]: transistors, gates, and combinatorial circuits; 🟡
+[[🟡 2 Digital Logic & Circuitry]]: transistors, gates, and combinatorial circuits; 🟡
 clocks; 🟡
 registers and register banks; 🔴
 arithmetic-logic units; 🟡
-data representation - [[1. Representing Data]]: big-endian and lible-endian integers; 🟢
+data representation - [[🟢 1 Representing Data]]: big-endian and lible-endian integers; 🟢
 ones and twos complement arithmetic; 🟢
 signed and unsigned values; 🟢
 Von-Neumann architecture and bottleneck; 🔴
-[[Instruction Sets]]; 🟡
+[[🟡 5 Instruction Sets]]; 🟡
 RISC and CISC designs; 🟡
 instruction pipelines and stalls; 🟡
 rearranging code; 🟡
-[[Memory]] and [[Address Spaces]]; 🟡
+[[🔴 Memory]] and [[Address Spaces]]; 🟡
 physical and virtual memory; 🟡
 interleaving; 🔴
 page tables;  🔴
@@ -55,7 +55,7 @@ revise (7.6 ) 🔴
 ## Diagrams to revisit
 
 ### Chp 2
-Instruction tables and encoding tables [[Instruction Sets]]
+Instruction tables and encoding tables [[🟡 5 Instruction Sets]]
 2.13 
 
 ### Chp 4

@@ -2,26 +2,68 @@ Opened 03:27
 
 Status: cs250
 
-Tags: [[Memory]] 
+Tags: [[🔴 Memory]] 
 
 Chapters: 5.3, 5.4
 
 # Cache
 > memory from which high-speed retrieval is possible
-## Types of Caches
 
-![[Screenshot 2025-12-10 033003.png]]
-#### 1. Direct-mapped cache
-> A cache structure in which each memory location is mapped to exactly one location in the cache.
+## 1 Technology
+### SRAM (Static RAM) (5.2)
+> Integrated-circuit memory using **6–8 transistors per bit**. 
+- One access port per array is common (though multi-ported SRAM exists).
+- Faster but far more expensive than DRAM
 
-##### Addressing
-mapping used to find a block: $(\text{Block address}) \text{ modulo } (\text{Number of blocks in the cache})$
+#### Characteristics
+- **Volatility:** volatile
+- **Access time:** very fast
+- **Bandwidth:** high
+- **Capacity:** small to moderate
+- **Technology:** stable bistable flip-flops; no refresh needed
+- **Access granularity:** word-level (defined by ISA)
+- **Cost per bit:** high
+- Temporal locality + Spatial locality
 
-address of a block:     $\dfrac{\text{Byte address}}{\text{Bytes per block}}$
+#### Usage
+L1/L2/L3 caches, register files
 
-![[Screenshot 2025-12-10 030156.png]]
 
-##### Reading from a direct-mapped cache
+1. Cache organization
+2. Policies
+3. Hit and miss behavior
+4. Transparency
+5. Coherency
+6. Consistency
+
+
+
+
+
+---
+## 2 Cache Line
+### 2.1 Structure
+#### Cache index
+> address of a cache line
+> a portion of a memory address that directs a CPU or database system to a cache line within the cache
+
+#### Tag
+> A field in a table used for a memory hierarchy that contains the address information required to identify whether the associated block in the hierarchy corresponds to a requested word.
+
+#### Valid bit
+> A field in the tables of a memory hierarchy that indicates that the associated block in the hierarchy contains valid data.
+
+#### Dirty Bit 
+(only for write policies)
+> a flag in computer systems, typically a single bit, that indicates a block of memory or data has been modified since it was last saved to storage
+#### Data Block
+> a fixed piece of memory cache fetches from main memory on a cache miss
+
+#### 2.1.1 Diagram of Cache Line Structure
+![[Screenshot 2025-12-12 001730.png]]
+
+
+### 1.2 Accessing a Cache Line
 ##### Tag and valid bit access example 5.3.3
 --> request to address 00110
 
@@ -36,7 +78,69 @@ address of a block:     $\dfrac{\text{Byte address}}{\text{Bytes per block}}$
 | 110   | N   |     |               |
 | 111   | Y   | 10  | Memory(10111) |
 The request to address 00110two results in a cache miss, so the word at address 00110two is brought into cache block 110two. The lower 3 bits of the address (110) specify the cache block mapping, and the upper 2 bits of the address (00) become the tag.
-##### Cache miss
+
+
+
+
+
+---
+## 3 Cache Organizations
+### 3.1 Direct-mapped cache
+> A cache structure in which each memory location is mapped to exactly one location in the cache.
+
+#### 3.1.1 Addressing
+mapping used to find a block: 
+
+$$
+(\text{Block address}) \text{ modulo } (\text{Number of blocks in the cache})
+$$
+
+address of a block:     
+
+$$
+\dfrac{\text{Byte address}}{\text{Bytes per block}}
+$$
+
+#### 2.2.2 Diagram of Direct-Mapped Cache Addressing
+![[Screenshot 2025-12-10 030156.png]]
+Can see low density --> high density mapping
+
+#### 2.2.3 Size of a Direct Mapped Cache
+##### Tag Field Sizes
+- $m$ = Block offset bits = number of words in block
+- $n$ = Index bits = $\log_2({\text{Number of blocks})}$
+- byte offset bits = 2
+
+##### Total number of bits in a Direct Mapped Cache
+$$
+\text{cache size} \times (\text{block size} + \text{tag size} + \text{valid field size})
+$$
+
+- $\text{cache size}$ = number of blocks = $2^n$ blocks
+- $\text{block size}$ = $2^{m + \text{word size in bits}}$ bits
+- $\text{tag size}$ = address size - (index bits - block-offset bits + byte-offset bits) = address size - $n$ - $m$ - 2 bits
+- $\text{valid field size} = 1$
+
+### 3.2 Fully associative cache (5.4)
+> A cache structure in which a block can be placed in any location in the cache.
+
+
+### 3.3 Set-associative cache (5.4)
+> A cache that has a fixed number of locations (at least two) where each block can be placed.
+
+
+
+![[Screenshot 2025-12-10 033003.png]]
+
+Where is a block found? (5.8)
+![[Screenshot 2025-12-10 043929.png]]
+
+How is a block found? (5.8)
+![[Screenshot 2025-12-10 043938.png]]
+
+
+## 4 Hit and Miss Behavior
+## Cache miss
 > A request for data from the cache that cannot be filled because the data are not present in the cache.
 
 Steps taken in the event of a cache miss
@@ -45,34 +149,35 @@ Steps taken in the event of a cache miss
 3. Write the cache entry, putting the data from memory in the data portion of the entry, writing the upper bits of the address (from the ALU) into the tag field, and turning the valid bit on.
 4. Restart the instruction execution at the first step, which will refetch the instruction, this time finding it in the cache.
 
-#### Writing to a cache
-Write-through
-> A scheme in which writes always update both the cache and the next lower level of the memory hierarchy, ensuring that data are always consistent between the two.
+### 4.1 Three C's Model
+> A cache model in which all cache misses are classified into one of three categories: compulsory misses, capacity misses, and conflict misses
+  
+#### 1. Compulsory miss
+> (cold-start miss) A cache miss caused by the first access to a block that has never been in the cache.
+
+#### 2. Capacity miss
+> A cache miss that occurs because the cache, even with full associativity, cannot contain all the blocks needed to satisfy the request.
+#### 3. Conflict miss: 
+> (collision miss) A cache miss that occurs in a set-associative or direct-mapped cache when multiple blocks compete for the same set and that are eliminated in a fully associative cache of the same size.
+
+
+
+
+
+---
+## 5 Policies
+
+### Write Policies
+#### Write-through
+> update both the cache and the next lower level of the memory hierarchy
+> to ensuring that data are always consistent between the two
 
 Write buffer
 > A queue that holds data while the data are waiting to be written to memory.
 
-Write-back
-> A scheme that handles writes by updating values only to the block in the cache, then writing the modified block to the lower level of the hierarchy when the block is replaced.
+#### Write-back
+> handles writes by updating values only to the block in the cache, then writing the modified block to the lower level of the hierarchy when the block is replaced.
 
-
-
-#### 2. Fully associative cache (5.4)
-> A cache structure in which a block can be placed in any location in the cache.
-
-
-
-#### 3. Set-associative cache (5.4)
-> A cache that has a fixed number of locations (at least two) where each block can be placed.
-
-
-==try problems 5.4.5 to test yourself on accessing different types of cache structures== #revise
-
-Where is a block found? (5.8)
-![[Screenshot 2025-12-10 043929.png]]
-
-How is a block found? (5.8)
-![[Screenshot 2025-12-10 043938.png]]
 
 ## Addresses and caches (5.7)
 ##### Virtually addressed cache
@@ -81,23 +186,10 @@ How is a block found? (5.8)
 ##### Physically addressed cache
 > A cache that is addressed by a physical address.
 
-#### TLB
 
 
-## Cache Behavior (5.8)
-#### Three C's Model
-> A cache model in which all cache misses are classified into one of three categories: compulsory misses, capacity misses, and conflict misses
-  
-##### 1. Compulsory miss
-> (cold-start miss) A cache miss caused by the first access to a block that has never been in the cache.
 
-##### 2. Capacity miss
-> A cache miss that occurs because the cache, even with full associativity, cannot contain all the blocks needed to satisfy the request.
-##### 3. Conflict miss: 
-> (collision miss) A cache miss that occurs in a set-associative or direct-mapped cache when multiple blocks compete for the same set and that are eliminated in a fully associative cache of the same size.
-
-
-## Cache Coherence (5.10)
+## Cache Coherence
 > in a coherent cache
 >- A processor must always read its **own most recent write** to a location if no other processor has written that location inbetween.
   >  
@@ -171,4 +263,13 @@ Split cache (5.3)
 
 Write invalidate protocol
 > invalidates copies in other caches on a write. Exclusive access ensures that no other readable or writable copies of an item exist when the write occurs: all other cached copies of the item are invalidated.
+
+# Active Recall
+
+## Textbook
+- problems 5.3.5
+- problems 5.4.5
 # References
+## Textbook
+Chapter 5
+- 5.1-5.4
