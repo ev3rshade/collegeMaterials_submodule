@@ -19,7 +19,7 @@ Von-Neumann architecture and bottleneck; 🔴
 RISC and CISC designs; 🟡
 instruction pipelines and stalls; 🟡
 rearranging code; 🟡
-[[🔴 Memory]] and [[Address Spaces]]; 🟡
+[[🟡 Memory]] and [[Address Spaces]]; 🟡
 physical and virtual memory; 🟡
 interleaving; 🔴
 page tables;  🔴

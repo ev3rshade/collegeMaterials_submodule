@@ -2,7 +2,7 @@ Opened 15:34
 
 Status:
 
-Tags: [[🔴 Memory]]
+Tags: [[🟡 Memory]]
 
 # Registers
 > A **register file** is a small, fast set of state elements inside the CPU.  

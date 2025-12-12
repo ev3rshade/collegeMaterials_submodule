@@ -10,7 +10,7 @@ Tags: [[Computer Architecture]]
 
 Examples: Keyboard, mouse, mic
 
-### [[🔴 Memory]]
+### [[🟡 Memory]]
 > Storage, a place to represent values that you would like to represent in the device
 ### [[Control]]
 

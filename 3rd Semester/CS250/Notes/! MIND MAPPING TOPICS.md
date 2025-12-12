@@ -16,10 +16,10 @@ arithmetic-logic units; 🟡
 
 ## 4. Memory Systems
 registers and register banks; 🔴
-[[🔴 Memory]] and [[Address Spaces]]; 🟡
-memory caches; 🔴
-physical and virtual memory; 🟡
-page tables; 🔴
+[[🟡 Memory]] and [[Address Spaces]]; 🔴
+memory [[🔴 Cache]]; 🔴
+physical and virtual memory (see [[Main memory]]); 🟡
+page tables ( see [[Main memory]]); 🟡
 DMA; 🟡
 
 ## 5. Instruction Sets

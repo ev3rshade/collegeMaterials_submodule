@@ -2,20 +2,19 @@ Opened 03:27
 
 Status: cs250
 
-Tags: [[🔴 Memory]] 
+Tags: [[🟡 Memory]] 
 
 Chapters: 5.3, 5.4
 
 # Cache
 > memory from which high-speed retrieval is possible
 
-## 1 Technology
-### SRAM (Static RAM) (5.2)
+## 1 Technology | SRAM (Static RAM) (5.2)
 > Integrated-circuit memory using **6–8 transistors per bit**. 
 - One access port per array is common (though multi-ported SRAM exists).
 - Faster but far more expensive than DRAM
 
-#### Characteristics
+### 1.1 Characteristics
 - **Volatility:** volatile
 - **Access time:** very fast
 - **Bandwidth:** high
@@ -25,16 +24,18 @@ Chapters: 5.3, 5.4
 - **Cost per bit:** high
 - Temporal locality + Spatial locality
 
-#### Usage
-L1/L2/L3 caches, register files
+### 1.2 Usage
+#### L1 Cache
+(a cache for a cache)
+L1 cache, known as the primary cache, can be used as a cache for the L2 cache
 
+#### L2 Cache
+(a cache for main memory)
+The L2 cache is faster than main memory, but tends to be larger and slower than the L1 cache
 
-1. Cache organization
-2. Policies
-3. Hit and miss behavior
-4. Transparency
-5. Coherency
-6. Consistency
+#### TLB 
+see [[Address Spaces]]
+
 
 
 
@@ -83,20 +84,20 @@ The request to address 00110two results in a cache miss, so the word at address
 
 
 
+
 ---
 ## 3 Cache Organizations
 ### 3.1 Direct-mapped cache
 > A cache structure in which each memory location is mapped to exactly one location in the cache.
 
 #### 3.1.1 Addressing
-mapping used to find a block: 
+mapping from memory block --> cache block: 
 
 $$
 (\text{Block address}) \text{ modulo } (\text{Number of blocks in the cache})
 $$
 
-address of a block:     
-
+block # is:
 $$
 \dfrac{\text{Byte address}}{\text{Bytes per block}}
 $$
@@ -121,26 +122,49 @@ $$
 - $\text{tag size}$ = address size - (index bits - block-offset bits + byte-offset bits) = address size - $n$ - $m$ - 2 bits
 - $\text{valid field size} = 1$
 
-### 3.2 Fully associative cache (5.4)
+
+### 3.2 Set-associative cache
+> A cache that has a fixed number of locations (at least two) where each block can be placed.
+> based on SETS of blocks
+
+mapping from memory block --> cache block: 
+
+Block # is:
+$$
+(\text{Block address}) \text{ modulo } (\text{Number of blocks in the cache} - \text{block number}/\text{location number})
+$$
+
+
+### 3.3 Fully associative cache
 > A cache structure in which a block can be placed in any location in the cache.
 
+mapping from memory block --> cache block: 
 
-### 3.3 Set-associative cache (5.4)
-> A cache that has a fixed number of locations (at least two) where each block can be placed.
+block # is:
+$$
+\text{Any of the eight blocks}
+$$
 
 
 
+
+### 3.4 Diagrams of Cache Organizations
 ![[Screenshot 2025-12-10 033003.png]]
 
-Where is a block found? (5.8)
+Where is a block found?
 ![[Screenshot 2025-12-10 043929.png]]
 
-How is a block found? (5.8)
+How is a block found? 
 ![[Screenshot 2025-12-10 043938.png]]
 
+### 3.5 Hit and Miss (accessing data)
+problems 5.4.5 - 5.4.7 (THIS WILL TEACH YOU)
 
+
+
+---
 ## 4 Hit and Miss Behavior
-## Cache miss
+### 4.2 Cache miss
 > A request for data from the cache that cannot be filled because the data are not present in the cache.
 
 Steps taken in the event of a cache miss
@@ -149,16 +173,23 @@ Steps taken in the event of a cache miss
 3. Write the cache entry, putting the data from memory in the data portion of the entry, writing the upper bits of the address (from the ALU) into the tag field, and turning the valid bit on.
 4. Restart the instruction execution at the first step, which will refetch the instruction, this time finding it in the cache.
 
-### 4.1 Three C's Model
+#### 4.2.1 Three C's Model
 > A cache model in which all cache misses are classified into one of three categories: compulsory misses, capacity misses, and conflict misses
-  
-#### 1. Compulsory miss
+##### Compulsory miss
 > (cold-start miss) A cache miss caused by the first access to a block that has never been in the cache.
-
-#### 2. Capacity miss
+##### Capacity miss
 > A cache miss that occurs because the cache, even with full associativity, cannot contain all the blocks needed to satisfy the request.
-#### 3. Conflict miss: 
+##### Conflict miss: 
 > (collision miss) A cache miss that occurs in a set-associative or direct-mapped cache when multiple blocks compete for the same set and that are eliminated in a fully associative cache of the same size.
+
+
+#### 4.2.2 Multilevel Caches
+Global miss rate 
+> The fraction of references that miss in all levels of a multilevel cache.
+
+Local miss rate 
+> The fraction of references to one level of a cache that miss; used in multilevel hierarchies.
+
 
 
 
@@ -167,29 +198,27 @@ Steps taken in the event of a cache miss
 ---
 ## 5 Policies
 
-### Write Policies
-#### Write-through
+### 5.3 Replacement Policies
+#### 5.3.1 Least recently used (LRU)
+> A replacement scheme in which the block replaced is the one that has been unused for the longest time.
+
+### 5.2 Write Policies
+#### 5.2.1 Write-through
 > update both the cache and the next lower level of the memory hierarchy
 > to ensuring that data are always consistent between the two
+
+#### 5.2.2 Write-back
+> handles writes by updating values only to the block in the cache, then writing the modified block to the lower level of the hierarchy when the block is replaced.
 
 Write buffer
 > A queue that holds data while the data are waiting to be written to memory.
 
-#### Write-back
-> handles writes by updating values only to the block in the cache, then writing the modified block to the lower level of the hierarchy when the block is replaced.
-
-
-## Addresses and caches (5.7)
-##### Virtually addressed cache
-> A cache that is accessed with a virtual address rather than a physical address
-
-##### Physically addressed cache
-> A cache that is addressed by a physical address.
 
 
 
 
-## Cache Coherence
+---
+## 6 Cache Coherence
 > in a coherent cache
 >- A processor must always read its **own most recent write** to a location if no other processor has written that location inbetween.
   >  
@@ -212,48 +241,40 @@ Write buffer
 What it helps with:
 Reducing Latency
 
-## Cache performance
+
+
+
+---
+## 7 Consistency
+
+---
+## 8 Cache performance
 
 #### Measuring performance
 #revise ==check chapter 5.4 for equations for now==
 
-#### Improving performance
 
-##### Block replacement
-Least recently used (LRU)
-> A replacement scheme in which the block replaced is the one that has been unused for the longest time.
+
+### 8.2 Dependability
+
+
+#### Improving performance
 
 ##### Multilevel cache
 > A memory hierarchy with multiple levels of caches, rather than just a cache and main memory.
-- If the second-level cache contains the desired data, the miss penalty for the first-level cache will be essentially the access time of the second-level cache, which will be much less than the access time of main memory
 - First level caches are more concerned about hit time
 - Second level caches are more concerned about miss rate
+	- the second-level cache contains the desired data, the miss penalty for the first-level cache will be essentially the access time of the second-level cache, which will be much less than the access time of main memory
 
 ##### Software optimization via blocking
 > reusing data in cache in a program (arrays are an example) (temporal locality)
 
-
-### Using Caches in Other Memory Spaces
-#### L1 Cache
-(a cache for a cache)
-L1 cache, known as the primary cache, can be used as a cache for the L2 cache
-#### L2 Cache
-(a cache for main memory)
-The L2 cache is faster than main memory, but tends to be larger and slower than the L1 cache
-#### TLB 
-see [[Address Spaces]]
 
 
 ## Terminology
 
 False sharing
 > When two unrelated shared variables are located in the same cache block and the full block is exchanged between processors even though the processors are accessing different variables.
-
-Global miss rate (5.4)
-> The fraction of references that miss in all levels of a multilevel cache.
-
-Local miss rate (5.4)
-> The fraction of references to one level of a cache that miss; used in multilevel hierarchies.
 
 Prefetching 
 > A technique in which data blocks needed in the future are brought into the cache early by using special instructions that specify the address of the block. (prediction)
@@ -268,7 +289,8 @@ Write invalidate protocol
 
 ## Textbook
 - problems 5.3.5
-- problems 5.4.5
+- problems 5.4.3
+- problems 5.4.5 - 5.4.7
 # References
 ## Textbook
 Chapter 5

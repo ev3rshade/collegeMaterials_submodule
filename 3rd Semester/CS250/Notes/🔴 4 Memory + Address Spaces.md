@@ -4,7 +4,7 @@ Status:
 
 Tags: [[Computer Architecture]]
 
-# [[🔴 Memory]] 
+# [[🟡 Memory]] 
 
 # [[Address Spaces]]
 
