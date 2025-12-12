@@ -9,5 +9,6 @@ notes - git submodule from main private obsidian backup repo
 - `git submodule init`
 - `git submodule deinit`
 - `git rm --cached`
+- `git mv`
 - `.gitmodules`
 - how to erase a commit history
