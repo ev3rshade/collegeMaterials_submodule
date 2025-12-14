@@ -6,7 +6,7 @@ Tags: cs250
 
 Topic: 4
 
-Prev Note: [[4 Memory + Address Spaces]] Next Note: [[Registers]] OR [[➡️ Cache]] OR [[🟡 Main memory]]  OR [[Disk]]
+Prev Note: [[6 Memory + Address Spaces]] Next Note: [[Registers]] OR [[➡️ Cache]] OR [[🟡 Main memory]]  OR [[Disk]]
 # Memory
 > a place to store values to represent information in the machine
 

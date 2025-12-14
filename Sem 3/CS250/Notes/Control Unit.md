@@ -6,7 +6,7 @@ Tags: cs250
 
 Topic: 8
 
-Prev note: [[🔴 Control and Task Management]] Next note: 
+Prev note: [[🔴 8 Control and Task Management]] Next note: 
 
 # Control Unit
 > The **control unit** generates control signals that direct how the datapath components operate for each instruction.

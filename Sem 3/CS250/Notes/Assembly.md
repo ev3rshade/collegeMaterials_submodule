@@ -6,7 +6,7 @@ Tags: cs250
 
 Topic: 5   3
 
-Prev Note: [[🟡 5 Instruction Sets]] or [[🟡 Compilation]]Next Note: [[ARM LEGv8]] or [[Linker]]
+Prev Note: [[🟡 3 Instruction Sets]] or [[🟡 Compilation]]Next Note: [[ARM LEGv8]] or [[Linker]]
 # Assembly
 > symbolic representation of machine instructions
 

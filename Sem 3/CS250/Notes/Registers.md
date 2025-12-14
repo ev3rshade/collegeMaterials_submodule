@@ -6,7 +6,7 @@ Tags: cs250
 
 Topic: 4
 
-Prev note: [[➡️ Memory]] [[3 Programs]] Next note: 
+Prev note: [[➡️ Memory]] [[4 Program and Program Translation]] Next note: 
 # Registers
 > A **register file** is a small, fast set of state elements inside the CPU.  
 > accessed using register numbers (IDs) and supply operands for instructions.
@@ -29,7 +29,7 @@ Destination register
 > register that receives results of an instruction
 
 ### Register Purpose in Programs
-[[3 Programs]]
+[[4 Program and Program Translation]]
 
 | Registers | Name                | Used For                  | Preserved |
 | --------- | ------------------- | ------------------------- | --------- |

@@ -6,7 +6,7 @@ Tags: [[CS250 Computer Architecture - Class Outline]]
 
 Topic: 0
 
-Prev Topic: [[Parallelism]] Next Topic:
+Prev Topic: [[9 Parallelism]] Next Topic:
 
 Prev Note: Next Note:
 # Performance

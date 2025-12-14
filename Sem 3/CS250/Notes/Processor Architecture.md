@@ -6,7 +6,7 @@ Tags: cs250
 
 Topic: 9
 
-Prev Note: [[Parallelism]] Next Note: [[SIMD]] OR [[MIMD]] OR [[Special Parallel Architectures- Grid, MISD, and Reliability]]
+Prev Note: [[9 Parallelism]] Next Note: [[SIMD]] OR [[MIMD]] OR [[Special Parallel Architectures- Grid, MISD, and Reliability]]
 # Processor Architecture
 >the design and structure of a CPU, dictating how it processes instructions and communicates with other components
 

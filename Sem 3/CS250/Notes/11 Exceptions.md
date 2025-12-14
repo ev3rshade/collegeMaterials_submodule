@@ -6,7 +6,7 @@ Tags: cs250
 
 Topic: 0
 
-Prev Topic: [[🟡 6 Program Translation and Execution]] Next Topic:
+Prev Topic: [[🟡 5 Program Execution]] Next Topic:
 
 ---
 

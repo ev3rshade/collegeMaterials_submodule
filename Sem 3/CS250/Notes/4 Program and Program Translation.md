@@ -4,7 +4,7 @@ Status:
 
 Tags: [[CS250 Computer Architecture - Class Outline]]
 
-Prev Topic: [[🟡 5 Instruction Sets]] Next Topic: [[🟡 6 Program Translation and Execution]]
+Prev Topic: [[🟡 3 Instruction Sets]] Next Topic: [[🟡 5 Program Execution]]
 
 Prev Note: Next Note: [[🟡 Compilation]]
 

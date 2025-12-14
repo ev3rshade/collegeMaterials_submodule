@@ -25,7 +25,7 @@ Both programs and data can be stored in the same memory
 
 ## 2 [[➡️ Memory]]
 > Storage, a place to represent values that you would like to represent in the device
-## 3 [[🔴 Control and Task Management]]
+## 3 [[🔴 8 Control and Task Management]]
 
 ## 4  [[Datapath]]
 (the arrows)

@@ -4,7 +4,7 @@ Status:
 
 Tags: [[CS250 Computer Architecture - Class Outline]]
 
-Prev Topic: [[1 Representing Data]] Next Topic: [[3 Programs]]
+Prev Topic: [[1 Representing Data]] Next Topic: [[4 Program and Program Translation]]
 
 Prev Note: [[Computer Arithmetic]] Next Note: [[Computer Arithmetic]]
 

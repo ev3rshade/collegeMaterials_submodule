@@ -4,7 +4,7 @@ Status: cs250
 
 Tags: [[CS250 Computer Architecture - Class Outline]]
 
-Prev Topic: [[🟡 6 Program Translation and Execution]] Next Topic: [[7 Processes (OS)]]
+Prev Topic: [[🟡 5 Program Execution]] Next Topic: [[7 Processes (OS)]]
 
 Prev Note: Next Note: [[➡️ Memory]]
 

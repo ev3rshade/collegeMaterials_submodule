@@ -4,7 +4,7 @@ Status:
 
 Tags: [[CS250 Computer Architecture - Class Outline]]
 
-Prev Topic: [[🔴 Control and Task Management]] Next Topic: [[Performance]]
+Prev Topic: [[🔴 8 Control and Task Management]] Next Topic: [[10 Performance]]
 
 Prev Note: Next Note [[Execution Models and Coordination Parallel Systems]] OR [[Processor Architecture]]
 # Parallelism

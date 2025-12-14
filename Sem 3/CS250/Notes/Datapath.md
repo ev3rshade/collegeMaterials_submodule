@@ -6,7 +6,7 @@ Tags: cs250
 
 Topic: 6
 
-Prev Note: [[Instruction Pipelining]] Next Note: [[🔴 Control and Task Management]]
+Prev Note: [[Instruction Pipelining]] Next Note: [[🔴 8 Control and Task Management]]
 
 
 # Datapath

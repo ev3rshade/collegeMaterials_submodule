@@ -4,9 +4,9 @@ Status:
 
 Tags: cs250
 
-Topic: [[🟡➡️ 2 Digital Logic & Circuitry]] [[🟡 6 Program Translation and Execution]]
+Topic: [[🟡➡️ 2 Digital Logic & Circuitry]] [[🟡 5 Program Execution]]
 
-Prev Note: [[🟡 6 Program Translation and Execution]] Next Note: [[Instruction Pipelining]]
+Prev Note: [[🟡 5 Program Execution]] Next Note: [[Instruction Pipelining]]
 # Clock
 > a hardware timing signal that coordinates when state elements (registers, PC, memory) are updated.
 - Clock period determines the maximum rate of instruction progress.

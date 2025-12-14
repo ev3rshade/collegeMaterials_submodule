@@ -4,11 +4,11 @@ Status:
 
 Tags: [[CS250 Computer Architecture - Class Outline]]
 
-Prev Topic: [[3 Programs]]  Next Topic: [[4 Memory + Address Spaces]]
+Prev Topic: [[4 Program and Program Translation]]  Next Topic: [[6 Memory + Address Spaces]]
 
-Prev Note: [[3 Programs]] Next Note: [[Clocking and Timing]]
+Prev Note: [[4 Program and Program Translation]] Next Note: [[Clocking and Timing]]
 
-# 🟡 6 Program Execution
+# 🟡 Program Execution
 >the process where a computer carries out instructions from a program
 
 

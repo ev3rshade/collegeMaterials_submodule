@@ -6,7 +6,7 @@ Tags: cs250
 
 Topic: 5
 
-Prev Note: [[3 Programs]] Next Note: [[Assembly]]
+Prev Note: [[4 Program and Program Translation]] Next Note: [[Assembly]]
 
 # Compilation
 

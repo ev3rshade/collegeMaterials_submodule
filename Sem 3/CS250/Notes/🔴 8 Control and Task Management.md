@@ -4,7 +4,7 @@ Status:
 
 Tags: [[CS250 Computer Architecture - Class Outline]]
 
-Prev Topic: [[7 Processes (OS)]] Next Topic: [[Parallelism]]
+Prev Topic: [[7 Processes (OS)]] Next Topic: [[9 Parallelism]]
 
 Prev note:  Next Note: [[Control Unit]]
 

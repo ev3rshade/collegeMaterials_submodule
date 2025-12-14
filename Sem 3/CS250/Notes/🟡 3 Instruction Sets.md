@@ -79,7 +79,7 @@ Branch address table (branch table) - a table of addresses of alternative instru
 ![[Screenshot 2025-12-09 135049.png]]
 
 #### [[Instruction Pipelining]]
-#### [[Parallelism]]
+#### [[9 Parallelism]]
 
 Arithmetic
 ![[Screenshot 2025-12-09 130702.png]]

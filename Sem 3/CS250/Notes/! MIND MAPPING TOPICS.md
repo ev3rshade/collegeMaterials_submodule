@@ -23,7 +23,7 @@ page tables ( see [[🟡 Main memory]]); 🟡
 DMA; 🟡
 
 ## 5. Instruction Sets
-[[🟡 5 Instruction Sets]]; 🟡
+[[🟡 3 Instruction Sets]]; 🟡
 [[➡️ RISC and CISC Design]]s; 🟡
 assembly language; 🟡
 
@@ -45,4 +45,4 @@ device programming; 🟡
 
 ## 10. Program Optimization
 rearranging code; 🟢
-Benchmarks/Power/Performance optimizations; [[Performance]] 🟢
+Benchmarks/Power/Performance optimizations; [[10 Performance]] 🟢

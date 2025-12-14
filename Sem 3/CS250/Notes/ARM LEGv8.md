@@ -6,7 +6,7 @@ Tags: cs250
 
 Topic: 5
 
-Prev Note: [[Assembly]] Next Note: [[3 Programs]]
+Prev Note: [[Assembly]] Next Note: [[4 Program and Program Translation]]
 
 # LEGv8
 > an assembly language. a simplified subset of the [ARMv8 assembly language](https://www.google.com/search?q=ARMv8+assembly+language&rlz=1C1CHBF_enUS1120US1120&oq=is+legv8+assembly&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTINCAEQABiGAxiABBiKBTIKCAIQABiABBiiBDIKCAMQABiABBiiBDIKCAQQABiABBiiBDIKCAUQABiABBiiBNIBCDM3ODdqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&mstk=AUtExfCB6IV_hxiwdvMW7FgfFbmmxEVevUbBM3cWDZ6gc-W6kITHyky3OARkNtGsP1kDBwek-Vgi9cvwckerUrpa39AKXi4LVDVMP5PdUWF0AzIG_9EXIFmG8wCTPbWM8ArvW6cN1TP15SqkWrWcTbsxCCSlbAuSeDusIrVqk8pSgVFcyMs&csui=3&ved=2ahUKEwillLGdoJuRAxWwmokEHVZeLFEQgK4QegQIARAC) used for educational purposes

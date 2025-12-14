@@ -14,7 +14,7 @@ data representation - [[1 Representing Data]]: big-endian and lible-endian integ
 ones and twos complement arithmetic; 🟢
 signed and unsigned values; 🟢
 Von-Neumann architecture and bottleneck; 🔴
-[[🟡 5 Instruction Sets]]; 🟡
+[[🟡 3 Instruction Sets]]; 🟡
 RISC and CISC designs; 🟡
 instruction pipelines and stalls; 🟡
 rearranging code; 🟡
