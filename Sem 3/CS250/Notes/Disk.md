@@ -2,8 +2,11 @@ Opened 22:47
 
 Status:
 
-Tags:
+Tags: cs250
 
+Topic: 4
+
+Prev Note: [[➡️ Memory]] Next Note:
 # Disk
 
 ## 1 Technology

@@ -1,9 +1,12 @@
 Opened 17:35
 
-Status: #cs250
+Status: 
 
-Tags: [[Assembly]]
+Tags: [[CS250 Computer Architecture - Class Outline]]
 
+Topic: 
+
+Prev Note: Next Note: [[Assembly]] OR [[➡️ RISC and CISC Design]]
 # Instruction Sets
 > the set of commands understood by a given (computer) architecture
 > i.e. the fundamental language of a computer
@@ -56,7 +59,7 @@ Branch address table (branch table) - a table of addresses of alternative instru
 
 ### Compiling instructions
 
-## Instruction Execution
+## 3  Instruction Execution
 ######  Stored program concept
 > idea that programs are stored on computers alongside data
 ###### Basic steps
@@ -75,24 +78,26 @@ Branch address table (branch table) - a table of addresses of alternative instru
 2. Branch not taken or (untaken branch): A branch where the branch condition is false and the program counter (PC) becomes the address of the instruction that sequentially follows the branch.
 ![[Screenshot 2025-12-09 135049.png]]
 
-#### [[Pipelining]]
+#### [[Instruction Pipelining]]
 #### [[Parallelism]]
+
 Arithmetic
 ![[Screenshot 2025-12-09 130702.png]]
 
 
-## Real World Instruction sets
+## 4 Real World Instruction sets
 - MIPS
 - ARMv7 (32-bit) instructions
 - x86 instructions
 - ARMv8 (64-bit) instruction set
 
-## Terminology
-Branch target address
-> The address specified in a branch, which becomes the new program counter (PC) if the branch is taken. In the LEGv8 architecture, the branch target is given by the sum of the offset field of the instruction and the address of the branch.
 
-Very Long Instruction Word (VLIW)
-> A style of instruction set architecture that launches many operations that are defined to be independent in a single wide instruction, typically with many separate opcode fields.
+---
+## 5 Portability
+
+If 2 computers share same ISA then assembly language is portable between them. 
+- However a counter example is x86, which has two incompatible assembly languages. One was created by Intel/AMD. The other by AT&T. See [https://en.wikipedia.org/wiki/X86_assembly_language#Syntax](https://en.wikipedia.org/wiki/X86_assembly_language#Syntax)
+
 # References
 
 ## Textbook

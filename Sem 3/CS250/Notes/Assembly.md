@@ -1,10 +1,12 @@
 10-30-2025 21:04
 
-Status: #cs250
+Status: 
 
-Tags: [[🟡 5 Instruction Sets]]
+Tags: cs250
 
-Chapters: 1.3
+Topic: 5   3
+
+Prev Note: [[🟡 5 Instruction Sets]] or [[🟡 Compilation]]Next Note: [[ARM LEGv8]] or [[Linker]]
 # Assembly
 > symbolic representation of machine instructions
 
@@ -15,6 +17,10 @@ One-to-one mapping to machine code!
 > a program that translates a symbolic version of the instructions into the binary version
 
 **Pseudoinstruction** - A common variation of assembly language instructions often treated as if it were an instruction in its own right.
+
 #### Symbol table 
 >A table that matches names of labels to the addresses of the memory words that instructions occupy.
 # References
+## Textbook
+- Chapter 1
+	- 1.3

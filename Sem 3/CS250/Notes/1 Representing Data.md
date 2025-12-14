@@ -2,9 +2,11 @@ Opened 17:45
 
 Status: cs250
 
-Tags: [[Computer Architecture]]
+Tags: [[CS250 Computer Architecture - Class Outline]]
 
-Chapters: 
+Prev Topic: [[CS250 Computer Architecture - Class Outline]] Next Topic: [[🟡➡️ 2 Digital Logic & Circuitry]]
+
+Prev Note: [[Von Neumann Architecture]] Next Note: [[🟡➡️ 2 Digital Logic & Circuitry]]
 
 # Representing Data
 ## 1. Units
@@ -14,6 +16,9 @@ Chapters:
 > rightmost bit in an LEGv8 doubleword
 #### Most significant bit
 > leftmost bit in a LEGv8 doubleword
+
+#### Byte
+> 8 bits
 
 #### Word
 > a natural unit of access in a computer, usually a group of 32 bits
@@ -48,11 +53,11 @@ Binary: `1111 0001 1010 0100`
 Group into 4-bit chunks: `1111 | 0001 | 1010 | 0100`  
 Convert each group:
 
-- 1111 → **F**
+- 1111 → **f**
     
 - 0001 → **1**
     
-- 1010 → **A**
+- 1010 → **a**
     
 - 0100 → **4**
     

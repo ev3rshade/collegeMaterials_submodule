@@ -1,15 +1,18 @@
 11-24-2025 16:14
 
-Status: #cs250
+Status: 
 
-Tags: 
+Tags: cs250
 
-Chapters: 1.3, 4.10
+Topic: 5
+
+Prev Note: [[3 Programs]] Next Note: [[Assembly]]
+
 # Compilation
 
 ## Optimizations
 
-###  Instruction Level [[Parallelism]]
+###  Instruction Level Parallelism
 ##### Loop unrolling
 > A technique to get more performance from loops that access arrays, in which multiple copies of the loop body are made and instructions from different iterations are scheduled together.
 
@@ -17,7 +20,7 @@ Chapters: 1.3, 4.10
 Register renaming
 > The renaming of registers by the compiler or hardware to remove antidependences.
 
-#### [[Instruction Scheduling]]
+#### Instruction Scheduling
 > reordering instructions to reduce stall time
 ## Terminology
 
@@ -36,3 +39,5 @@ Reservation station
 Reorder buffer
 > The buffer that holds results in a dynamically scheduled processor until it is safe to store the results to memory or a register.
 # References
+## Textbook
+- Chapters 1.3, 4.10

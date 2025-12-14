@@ -1,8 +1,12 @@
 Opened 21:06
 
-Status: #cs250
+Status: 
 
-Tags:
+Tags: cs250
+
+Topic: 3
+
+Prev Note: [[Linker]] Next Note: [[🟡 Address Spaces]]
 
 # Loader
 > a systems program (part of the OS) that places an object program in main memory so that it is ready to execute

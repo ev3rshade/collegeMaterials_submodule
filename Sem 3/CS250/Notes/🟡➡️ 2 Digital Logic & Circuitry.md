@@ -1,8 +1,12 @@
 Opened 15:48
 
-Status: cs250
+Status: 
 
-Tags: [[Computer Architecture]] #abstraction
+Tags: [[CS250 Computer Architecture - Class Outline]]
+
+Prev Topic: [[1 Representing Data]] Next Topic: [[3 Programs]]
+
+Prev Note: [[Computer Arithmetic]] Next Note: [[Computer Arithmetic]]
 
 # Digital Logic
 
@@ -52,6 +56,15 @@ Tags: [[Computer Architecture]] #abstraction
 - Any component with a clock input
 - Latches and flip-flops
 
+#### Finite-State Machines (FSMs)
+> A **sequential logic function** consisting of:
+- A set of **inputs** and **outputs**
+- A **state** stored in memory elements
+- A **next-state function** that maps the current state and inputs to a new state
+- An **output function** that maps the current state (and possibly inputs) to asserted outputs   
+
+#### Next-State Function
+> A **combinational function** that, given the inputs and the current state, determines the **next state** of a finite-state machine.
 
 
 
@@ -97,22 +110,92 @@ Tags: [[Computer Architecture]] #abstraction
 
 
 
+
+
 ---
-## 5 Structured Logic Components
+## 5 Bus Architecture
+>a group of N wires used to carry N bits 
+>of data simultaneously from place to place
+
+#### Core Ideas
+- A bus of width **N** consists of **N parallel wires**, each carrying **one bit**.
+- All bits are interpreted together as a binary value (e.g., an 8‑bit number).
+- Buses are used to move data efficiently between components such as registers, ALUs, and memory.
+    
+
+#### Two Complementary Meanings (Important)
+1. **Grouped data signal**
+    > A bus represents a multi-bit value (e.g., `DATA[7:0]`).
+    
+2. **Shared communication medium**
+    > A bus may be **shared by multiple sources and multiple destinations**, but **only one source may drive it at a time**.
+    
+
+#### Control vs. Data on a Bus
+- **Data bus**: carries values (numbers, instructions).
+- **Control signals** (not part of the bus width) decide:
+    - _Who_ may place data on the bus
+    - _When_ data is valid
+        
+
+Examples of control signals
+- Enable (EN)
+- Read / Write
+- Select lines
+    
+
+#### Bus Width
+> The number of bits carried in parallel.
+- 1-bit (control)
+- 8-bit, 16-bit, 32-bit, 64-bit (data)
+    
+
+Wider buses:
+- Transfer more data per cycle
+- Require more wires and hardware
+    
+
+#### Driving a Shared Bus
+
+To prevent electrical conflicts:
+- Only **one device** may actively drive the bus at any time.
+- Others must be electrically disconnected.
+    
+
+Common techniques:
+- **Tri-state buffers** (output = 0, 1, or Z)
+- **Multiplexers** (explicitly select one source)
+    
+
+#### Why Buses Matter in Computer Architecture
+- Reduce wiring complexity
+- Enable modular design
+- Form the backbone of:
+    - Register files
+    - Memory interfaces
+    - CPU datapaths
+
+
+
+
+
+---
+## 6 Structured Logic Components
 components of a logic system (circuit) built from the fundamental components
 
 
-### 5.1 Data Stream
-#### Bus
->a group of N wires used to carry N bits 
->of data simultaneously from place to place
+### 6.1 Data Stream
+
 #### Multiplexer (MUX)
 > (selector) uses control signals to select one of the inputs and direct it to the output, acting as a data selector or a "many-to-one" switch
 - **Selector value:** (control value) The control signal that is used to select one of the input values of a multiplexor as the output of the multiplexor.
+- Channels: $2^N$, $2^N$ data inputs, 1 output
+- Selection lines: $N$
+- Width: can be 1-bit, 4-bit, 8-bit
 #### Demultiplexer (DEMUX)
 > a digital circuit that takes a single data input and routes it to one of several possible output lines, controlled by selection lines
 
-### 5.2 Encoder / Decoder
+### 6.2 Encoder / Decoder
 > **Encoders*** convert $2^N$ lines of input into a code of $N$ bits and **Decoders*** decode the $N$ bits into $2^N$ lines
 
 - **Decoder**:
@@ -126,25 +209,60 @@ components of a logic system (circuit) built from the fundamental components
     - Output: $n$ bits
     - Converts a single asserted input into a binary code.
 
-### 5.3 Programmable Logic Structures
-#### Programmable logic array (PLA)\
-> “A logic element with complemented inputs and two stages:
-> 	1. **AND stage** forms product terms
-> 	2. **OR stage** forms sum terms”
+### 6.3 Programmable Logic Structures
 
-##### Read-only memory (ROM)
+#### Field Programmable Devices (FPD)
+> An **integrated circuit** containing combinational logic, and possibly memory devices, that are **configurable by the end user**.
+
+#### Programmable Logic Device (PLD)
+> An integrated circuit containing **combinational logic** whose function is configured by the end user.
+
+#### Simple Programmable Logic Device (SPLD)
+> A programmable logic device, usually containing either a **single PAL or PLA**.
+
+#### Programmable Logic Array (PLA)
+> A logic element with **complemented inputs** and two programmable stages:
+> 
+> 1. **AND plane** forms product terms
+>     
+> 2. **OR plane** forms sum terms
+>     
+
+#### Programmable Array Logic (PAL)
+> Contains a **programmable AND-plane** followed by a **fixed OR-plane**.
+
+#### Read-Only Memory (ROM)
 > Implements logic by treating input values as **addresses** and outputs as **stored words**.
-- **Programmable ROM (PROM)**: A form of read-only memory that can be programmed when a designer knows its contents.
+
+- **Programmable ROM (PROM)**: Programmed once after manufacturing.
+    
+#### Field Programmable Gate Array (FPGA)
+> A configurable integrated circuit containing both **combinational logic blocks** and **flip-flops**.
+
+- Logic is implemented using **Lookup Tables (LUTs)** and programmable interconnects.
+    
+#### Lookup Tables (LUTs)
+> In a field programmable device, cells that consist of a small amount of **logic and RAM**, used to implement Boolean functions.
+
+#### Antifuse
+> A structure in an integrated circuit that, when programmed, makes a **permanent connection** between two wires.
 
 
+## 7 Timing
+#### Setup Time
+> The **minimum time** that the input to a memory device (latch or flip-flop) must be **valid before** the active clock edge.
 
-## 6 Timing
-Gate Delays and stuff
+#### Hold Time
+> The **minimum time** during which the input must remain **valid after** the active clock edge.
+
+Violating setup or hold time constraints can cause **metastability**, where the output is unpredictable.
+
+See [[Clocking and Timing]]
 
 ---
-## 7 Example Circuits & How They Work
+## 8 Example Circuits & How They Work
 
-### 7.1 Half Adder
+### 8.1 Half Adder
 #### Purpose
 Adds two 1-bit binary inputs (A and B).
 
@@ -161,7 +279,7 @@ Adds two 1-bit binary inputs (A and B).
 
 
 ---
-### 7.2 Full Adder
+### 8.2 Full Adder
 
 #### Purpose
 Adds three 1-bit binary inputs (A, B, and Carry-in).
@@ -180,7 +298,7 @@ Adds three 1-bit binary inputs (A, B, and Carry-in).
 
 
 ---
-### 7.3 2-to-1 Multiplexer
+### 8.3 2-to-1 Multiplexer
 
 #### Inputs
 - **D0**, **D1** (data inputs)  
@@ -201,7 +319,7 @@ Adds three 1-bit binary inputs (A, B, and Carry-in).
 
 ---
 
-### 7.4 3-to-8 Decoder
+### 8.4 3-to-8 Decoder
 
 #### Inputs
 - **A2, A1, A0** (3-bit binary input)
@@ -224,7 +342,7 @@ Only one AND gate matches the binary input pattern → only one output is assert
 
 ---
 
-### 7.5 Set–Reset Latch (SR Latch using NOR Gates) (Lab 03)
+### 8.5 Set–Reset Latch (SR Latch using NOR Gates) (Lab 03)
 
 #### Inputs
 - **S** (set)  
@@ -243,7 +361,7 @@ Only one AND gate matches the binary input pattern → only one output is assert
 
 ---
 
-### 7.6 D Latch (Basic Memory Element)
+### 8.6 D Latch (Basic Memory Element)
 
 #### Inputs
 - **D** (data)  
@@ -268,41 +386,6 @@ Only one AND gate matches the binary input pattern → only one output is assert
 
 
 ---
-
-
-# Information that needs to be included
-Setup time
-> The minimum time that the input to a memory device must be valid before the clock edge.
-
-Hold time
-> The minimum time during which the input must be valid after the clock edge.
-
-Finite-state machine
-> A sequential logic function consisting of a set of inputs and outputs, a next-state function that maps the current state and the inputs to a new state, and an output function that maps the current state and possibly the inputs to a set of asserted outputs.
-
-Next-state function
-> A combinational function that, given the inputs and the current state, determines the next state of a finite-state machine.
-
-Field programmable devices (FPD)
-> An integrated circuit containing combinational logic, and possibly memory devices, that are configurable by the end user.
-
-Programmable logic device (PLD)
-> An integrated circuit containing combinational logic whose function is configured by the end user.
-
-Field programmable gate array (FPGA)
-> A configurable integrated circuit containing both combinational logic blocks and flip-flops.
-
-Simple programmable logic device (SPLD)
-> Programmable logic device, usually containing either a single PAL or PLA.
-
-Programmable array logic (PAL)
-> Contains a programmable and-plane followed by a fixed or-plane.
-
-Antifuse
-> A structure in an integrated circuit that when programmed makes a permanent connection between two wires.
-
-Lookup table (LUTs)
-> In a field programmable device, the name given to the cells because they consist of a small amount of logic and RAM.
 # References
 ## Lectures
 [[CS250 LEC Boolean Alg, Comb Ckts, TT to Ckt - GB Adams.pdf]]
@@ -311,11 +394,8 @@ Lookup table (LUTs)
 ## Textbook Chapters
 - Chapter 7
 	- 7.1 - 7.3
-	- 
 	- 7.8
 	- 7.12
-	- 
-
 ## Labs
 [[CS250 Lab01 Course Introduction.pdf]] - circuit diagram is incorrect
 [[CS250 Lab03 S'R' Latch.pdf]]

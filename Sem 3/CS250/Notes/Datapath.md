@@ -1,97 +1,172 @@
 10-30-2025 01:10
 
-Status: #cs250
+Status: 
 
-Tags: #revise
+Tags: cs250
 
-Chapters: 1.4, all of chapter 4
+Topic: 6
+
+Prev Note: [[Instruction Pipelining]] Next Note: [[🔴 Control and Task Management]]
+
 
 # Datapath
-> a unit used to operate on or hold data within a processor. In the LEGv8 implementation includes: instruction and data memories, the register file, the ALU, and adders 
-> i.e. path of data flow
+>A **datapath** is the collection of hardware units that store, move, and operate on data within a processor.
+>(path of data flow)
 
-## Components
-Registers [[Memory Hardware]]
-- Program counter (PC)
+In the **LEGv8** architecture, the datapath defines the _path of data flow_ as instructions are fetched, decoded, executed, and completed.
+
+A datapath works **together with the control unit**, which tells each component _what to do_ in a given clock cycle.
+
+
+
+
+
+---
+## 1 Datapath Elements
+> (core datapath components)
+> These elements together are called **datapath elements**.
+### State Elements
+#### Registers
+- **Program Counter (PC)** – holds the address of the next instruction
+- **Register File** – stores general-purpose registers used by instructions
+    
+#### Memory Units
+- **Instruction Memory** – stores program instructions
+- **Data Memory** – stores program data (used by load/store instructions)
+
+
+### Combinatorial Elements
+#### Functional Units
+- **ALU (Arithmetic Logic Unit)** – performs arithmetic and logical operations
+- **Adders** – used for PC incrementing and branch target calculation
+
+
+#### Data Routing
+- **Multiplexers (MUXes)** – select between multiple data inputs
+- **Wires / buses** – carry data and control signals
+
+
+Summary:
 - Register file
-ALU [[Circuitry]]
-Addressing
+- ALU
+- Instruction memory
+- Data memory
+- Adders
+- Multiplexers
 
 a simple example
-![[2 Source Material/College Materials/3rd Semester/CS250/attachments/Screenshot 2025-12-09 135243.png]]
-
-## Implementation
-Various implementations
-##### Units needed to implement R-format ALU operations
-1. the register file
-2. ALU.
-##### The four units needed to implement loads and stores
-1. register file
-2. ALU
-3. data memory unit
-4. and sign extension unit
-5. (additional) Wires/muxes
-##### The five units needed for a branch
-1. ALU - evaluates branch condition
-2. adder - computes branch target address (sign extending, then shifting left by 2)
-3. The remaining datapath portion for fetching instructions and incrementing the program counter. Nearly the full LEGv8 datapath is now shown.
-	1. Program counter
-	2. adder
-	3. mux
-
-#### Single cycle implementation
-> (single clock implementation) an implementation which an instruction is executed in one clock cycle. it is too slow to be practical
-
-#### Multicycle Implementation (4.6)
-> 5 stage instruction execution (see [[Pipelining]])
-> 1. IF: Instruction fetch
-> 2. ID: Instruction decode and register file read
-> 3. EX: Execution or address calculation
-> 4. MEM: Data memory access
-> 5. WB: Write back
-> IF to ID; ID to EX; EX to MEM; MEM to WB
-![[Screenshot 2025-12-10 013110.png]]
-## Terminology
-Datapath element
-> A unit used to operate on or hold data within a processor. In the LEGv8 implementation, the datapath elements include the instruction and data memories, the register file, the ALU, and adders.
+![[6 Full Notes/College Notes/Sem 3/CS250/attachments/Screenshot 2025-12-09 135243.png]]
 
 
 
-## Circuirty
 
-## **6. Memory & Datapath Components**
 
-### **6.1 Clock**
+---
+## 2 Instruction Classes and Required Datapath Units
 
-Controls timing, synchronization, and sequencing of state elements.
-
-### **6.2 Memory Components**
-
-- **Instruction memory**
+### R-format (ALU) Instructions
+Required units
+1. Register file (read operands)
+2. ALU (perform operation)
     
-- **Data memory**
-    
-- **Registers**
-    
-- **Program Counter (PC)** — holds instruction address
+3. Register file (write result)
     
 
-_(Your “forgot word memory” might be **data memory** or **main memory** — let me know and I’ll fill it in.)_
+### Load and Store Instructions
+Required units:
+1. Register file
+2. ALU (compute effective address)
+3. Data memory
+4. Sign extension unit (offset)
+5. Multiplexers and wiring
 
-### **6.3 Datapath Elements**
+> The ALU always performs **addition** to compute memory addresses.
 
-> Units that store or operate on data within a processor.  
-> Includes:
+### Branch Instructions
+Required units:
+1. ALU – evaluates branch condition
+2. Adder – computes branch target address
+3. Program Counter (PC)
+4. Multiplexer – selects next PC value
+    
+Branch target computation:
+- Sign-extend immediate
+- Shift left by 2
+- Add to PC+4
 
-- Register file
+
+
+
+---
+## 3 Datapath Implementations
+### Single-Cycle Datapath
+> Each instruction completes in **one clock cycle**.
+
+**Advantages:**
+- Simple control logic
     
-- ALU
+
+**Disadvantages:**
+- Clock cycle must be long enough for the _slowest instruction_
+- Impractical for high-performance CPUs
     
-- Instruction memory
+
+### Multi-Cycle Datapath
+> Instructions are broken into multiple steps across cycles.
+
+Common stages:
+1. IF – Instruction Fetch
+2. ID – Instruction Decode & Register Read
+3. EX – Execute / Address Calculation
+4. MEM – Data Memory Access
+5. WB – Write Back
     
-- Data memory
+
+**Benefits:**
+- Shorter clock period
+- Hardware reuse
     
-- Adders
+
+
+### Pipelined Datapath
+> Overlaps execution of multiple instructions to increase throughput.
+- Each stage handles a different instruction simultaneously
+- Requires additional hardware:
+    - Pipeline registers (IF/ID, ID/EX, EX/MEM, MEM/WB)
+        
+
+**Challenges:**
+- Data hazards
+- Control hazards
+- Structural hazards
     
-- Multiplexors
+
+(See: [[Hazards, forwarding, and stalls]]) 
+
+
+
+
+---
+## 4 Relationship Between Datapath and Control
+
+- Datapath provides the **hardware pathways**
+- Control unit provides **control signals**
+- Together, they define how instructions execute each cycle
+    
+
+Examples of control signals affecting the datapath:
+- RegWrite
+- MemRead / MemWrite
+- ALUSrc
+- MemToReg
+- Branch
+
+
+
+---
+# Active Recall
 # References
+## Textbook
+- Chapter 1
+	- 1.4
+- all of chapter 4

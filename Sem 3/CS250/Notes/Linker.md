@@ -1,8 +1,12 @@
 Opened 21:03
 
-Status: #cs250
+Status:
 
-Tags:
+Tags: cs250
+
+Topic: 3
+
+Prev Note: [[🟡 Compilation]] Next Note: [[Loader]]
 
 # Linker
 (link editor)

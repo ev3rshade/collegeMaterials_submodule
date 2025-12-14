@@ -1,8 +1,12 @@
 Opened 17:54
 
-Status: #cs250
+Status: 
+ 
+Tags: cs250
 
-Tags: [[Circuitry]]
+Topic: 2
+
+Prev Note: [[🟡➡️ 2 Digital Logic & Circuitry]] Next Note: [[Arithmetic Logic Unit (ALU)]]
 
 # Computer Arithmetic
 #### Binary digit representation
@@ -77,11 +81,9 @@ result:        1011
 ```
 ![[Screenshot 2025-12-09 124711.png]]
 
-[[Moore's Law]]
-[[Prediction]] - **predict** several quotient bits per step
+Prediction - **predict** several quotient bits per step
 
 ## Circuitry used
-(see [[Circuitry]] for more info)
 Arithmetic Logic Unit (ALU)
 Registers
 

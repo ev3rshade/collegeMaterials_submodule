@@ -1,3 +1,10 @@
+Opened 12-12-2025 18:49
+
+Status:
+
+Tags: cs182
+
+# 6 Algorithms
 ### 3.1 Algorithms
 finiteness  |  definiteness  |  correctness  |  effectiveness  |  Generality
 
@@ -83,7 +90,7 @@ operations like addition and division are assumed to take the same amount of tim
 		2. find a C
 		3. ![[Screenshot 2025-02-16 135651.png]] Example: $x^2 + 2x + 1 \leq 4(x^2)$  when  $x > 1$
 			$f(x) = x^2 + 2x + 1, g(x) = x^2, C = 4, k = 1$
-	- HOW TO SHOW $n^2$ is not $O(n)$ #cs182
+	- HOW TO SHOW $n^2$ is not $O(n)$
 		- Proof by contradiction (no C and k for all n)
 
 ###### Theorem 1
