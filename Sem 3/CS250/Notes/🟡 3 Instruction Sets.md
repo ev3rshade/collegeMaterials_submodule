@@ -40,11 +40,13 @@ Branch address table (branch table) - a table of addresses of alternative instru
 
 ### Another type
 #### R type
+> register type
 > uses bits 20:10 for two fields: an operand register (5 bits), and a shift amount (6 bits)
 #### I type
-> 
+> immediate type
 #### D type
-> uses a constant to indicate the offset from a base address. A D-type instruction has a 9 bit immediate fieldd
+> data transfer
+> uses a constant to indicate the offset from a base address. A D-type instruction has a 9 bit immediate field
 
 
 ## 2 Instruction Representation
@@ -79,7 +81,7 @@ Branch address table (branch table) - a table of addresses of alternative instru
 ![[Screenshot 2025-12-09 135049.png]]
 
 #### [[Instruction Pipelining]]
-#### [[9 Parallelism]]
+#### [[9 Parallelism (improving computer execution)]]
 
 Arithmetic
 ![[Screenshot 2025-12-09 130702.png]]

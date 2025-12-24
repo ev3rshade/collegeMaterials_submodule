@@ -49,6 +49,17 @@ Prev Note: [[🟡 5 Program Execution]] Next Note: [[Instruction Pipelining]]
 - In processors: measured in **clock cycles**
 - **Load-use latency**: number of cycles between a load instruction and the earliest instruction that can use its result without stalling
 
+
+
+
+---
+## 4 CPU Time vs Execution Time
+#### CPU Time
+> The total time it takes to execute INSTRUCTIONS
+
+#### Execution Time (Elapsed wall-clock time)
+> Time it takes to run a process start to finish including wait times on io devices, disk access, etc.
+
 # References
 ## Textbook
 - Chapter 1

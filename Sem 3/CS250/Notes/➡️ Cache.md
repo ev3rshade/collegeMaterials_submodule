@@ -245,10 +245,13 @@ Tradeoff:
 
 ## 6 Coherence and Consistency
 
-### 6.1 Cache Coherence
+### 6.1 Cache Coherence and Data Invalidation
 > Ensures all caches see a consistent value for a single memory location.
 
 Defines **what** value can be returned.
+
+#### Data Invalidation
+> the process of marking or removing outdated data from a cache (like a web cache or memory cache) to ensure applications use fresh, accurate information from the source, balancing performance with data consistency
 
 ### 6.2 Cache Consistency
 > Defines ordering of memory operations across locations.
@@ -256,13 +259,13 @@ Defines **what** value can be returned.
 Defines **when** values can be read.
 
 ### 6.3 Qualities of a Coherent Cache
-- A processor reads its own most recent write 
-- Writes eventually visible to other processors
-- Writes are seen in the same order by all processors
-    
-
-**Write serialization**
+1 Program order preservation
+	1. A processor reads its own most recent write 
+2 Write propagation
+	2. Writes eventually visible to other processors
+3 **Write serialization**
 > Ensures consistent ordering of writes
+
 
 Migration
 > Moving data closer to the accessing processor.
@@ -280,7 +283,6 @@ Replication
 - Most common protocol
 - Write invalidate protocol
 - Caches monitor shared bus activity
-    
 
 #### 6.5.2 Write invalidate protocol
 > Invalidates other cached copies on a write.

@@ -6,7 +6,7 @@ Tags: cs250
 
 Topic: 9
 
-Prev Note: [[9 Parallelism]] Next Note: 
+Prev Note: [[9 Parallelism (improving computer execution)]] Next Note: 
 
 # Execution Models and Coordination Parallel Systems
 

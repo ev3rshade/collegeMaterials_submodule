@@ -6,7 +6,7 @@ Tags: [[CS250 Computer Architecture - Class Outline]]
 
 Topic: 0
 
-Prev Topic: [[9 Parallelism]] Next Topic:
+Prev Topic: [[9 Parallelism (improving computer execution)]] Next Topic:
 
 Prev Note: Next Note:
 # Performance
@@ -22,7 +22,6 @@ Performance always depends on:
 
 ## 1 Time-Based Metrics
 ### Response Time / Execution Time
-
 > Total time required for a computer to complete a task from start to finish.
 
 Includes:
@@ -30,7 +29,7 @@ Includes:
 - Memory access time
 - I/O activity
 - Operating system overhead
-- CPU computation time
+- CPU execution time
     
 
 Lower execution time ⇒ **better performance**.
@@ -39,9 +38,10 @@ Lower execution time ⇒ **better performance**.
 - **CPU execution time (CPU time):** Time CPU spends computing for the task
 - **User CPU time:** Time spent executing the program itself
 - **System CPU time:** Time spent in the OS on behalf of the program
-    
-> System performance usually refers to **elapsed (wall-clock) time** on an unloaded system.  
-> CPU performance usually refers to **user CPU time**.
+
+#### ==IMPORTANT NOTE==
+System performance usually refers to **elapsed (wall-clock) time** on an unloaded system.  
+CPU performance usually refers to **user CPU time**.
 
 
 
@@ -159,7 +159,7 @@ $$
 
 Where:
 
-- _f_ = fraction of execution time affected
+- _f_ = fraction of execution time affected (parallelizable portion)
 - _s_ = speedup of the improved portion
     
 
